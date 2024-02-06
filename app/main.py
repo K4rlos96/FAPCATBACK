@@ -1,8 +1,23 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 from . import models, schemas, database
 
 app = FastAPI()
+
+# Configuración de CORS
+origins = [
+    "http://localhost:5173",  # Permitir el origen de tu aplicación React
+    # Puedes añadir más orígenes si es necesario
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Lista de orígenes permitidos
+    allow_credentials=True,
+    allow_methods=["*"],  # Métodos HTTP permitidos
+    allow_headers=["*"],  # Cabeceras HTTP permitidas
+)
 
 # Dependencia para obtener la sesión de la base de datos
 def get_db():
