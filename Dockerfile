@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar los archivos de tu proyecto FastAPI
-COPY ./app .
+COPY ./app /app
 
 # Exponer el puerto que utiliza tu aplicación
 EXPOSE 8000
