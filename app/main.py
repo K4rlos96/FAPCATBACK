@@ -5,7 +5,7 @@ import models, schemas, database
 
 app = FastAPI()
 
-#PROBANDO jenkins
+#PROBANDO jenkins version 2 git push
 # Configuración de CORS
 origins = [
     "http://localhost:5173",  # Permitir el origen de tu aplicación React
